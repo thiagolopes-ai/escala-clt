@@ -1,0 +1,31 @@
+name: testes
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Rodar os testes
+        run: python -m pytest testes/ -q
+
+      # Cenário reduzido de propósito: a integração contínua confere que a
+      # comparação roda ponta a ponta, não que o número do README é aquele.
+      # Quem quiser conferir o número roda `python comparar.py` sem argumentos.
+      - name: Reproduzir a comparação num cenário reduzido
+        run: python comparar.py --dias 14 --segundos 20
