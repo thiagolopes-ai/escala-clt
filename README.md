@@ -107,7 +107,7 @@ Diagnóstico é o que vem antes de trocar de método, e ninguém troca de métod
 
 **A escala do cliente não sai da máquina dele.** A página carrega o Python no navegador via Pyodide e roda a auditoria ali dentro — nada é enviado para servidor nenhum. Escala tem nome, matrícula e jornada de gente de verdade; mandar isso para um servidor de terceiro para "testar uma ferramenta" seria o oposto do que este projeto defende.
 
-E não há reimplementação. Os arquivos que rodam no navegador são exatamente `escala/clt.py`, `dominio.py`, `planilha.py`, `cenario.py` e `manual.py` — os mesmos que passam nos 37 testes. Nenhum deles tem dependência externa, e isso não é sorte: é a decisão de projeto que torna a página possível. Uma versão em JavaScript acabaria divergindo do motor auditado em três meses, e ninguém perceberia.
+E não há reimplementação. Os arquivos que rodam no navegador são exatamente `escala/clt.py`, `dominio.py`, `planilha.py`, `cenario.py` e `manual.py` — os mesmos que passam nos 41 testes. Nenhum deles tem dependência externa, e isso não é sorte: é a decisão de projeto que torna a página possível. Uma versão em JavaScript acabaria divergindo do motor auditado em três meses, e ninguém perceberia.
 
 O que **não** roda no navegador é o otimizador: o OR-Tools não vai para Pyodide. A divisão é a mesma que a operação vive — o diagnóstico é local e gratuito, a otimização roda na casa do cliente.
 
@@ -175,7 +175,7 @@ pip install -r requirements.txt
 python comparar.py                    # reproduz a tabela principal
 python comparar.py --dimensionar      # e a análise de contratação
 python comparar.py --semente 7        # outro cenário
-python -m pytest testes/ -q           # 37 testes
+python -m pytest testes/ -q           # 41 testes
 ```
 
 ### Usando como biblioteca
