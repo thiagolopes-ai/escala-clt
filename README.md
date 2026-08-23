@@ -185,7 +185,7 @@ for infracao in auditoria.infracoes:
 
 | Decisão | Alternativa considerada | Por quê |
 |---|---|---|
-| Programação por restrições (CP-SAT) | Heurística gulosa com correção | O guloso decide um turno por vez e nunca desfaz. Com folga de 1,7%, desfazer é o que fecha a escala |
+| Programação por restrições (CP-SAT) | Heurística sem retrocesso com correção | Ela decide um turno por vez e nunca desfaz. Com folga de 1,7%, desfazer é o que fecha a escala |
 | CP-SAT | Programação linear inteira pura | As regras são combinatórias, não lineares: "não trabalha em dias seguidos" é natural em CP e desajeitado em PLI |
 | Condição de Hall para substituição | Variável por (pessoa, dia, turno, classe) | As classes são encaixadas, então basta exigir gente suficiente em cada prefixo. Triplicaria o modelo para responder o mesmo |
 | Auditor separado do gerador | Validação dentro do solver | Auditor que só confere a própria saída não audita planilha de terceiro — e é isso que a operação precisa primeiro |
